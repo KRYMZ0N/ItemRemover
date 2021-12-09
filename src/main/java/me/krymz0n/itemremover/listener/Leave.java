@@ -20,6 +20,7 @@ public class Leave implements Listener {
         if (plugin.getConfig().getBoolean("Leave") && !evt.getPlayer().isOp()) {
             Player p = evt.getPlayer();
             evt.getPlayer().getInventory().forEach(plugin::remove);
+
             if (plugin.getConfig().getBoolean("Debug")) {
                 System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");

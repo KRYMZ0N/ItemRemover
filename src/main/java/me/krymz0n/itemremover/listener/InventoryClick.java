@@ -19,8 +19,10 @@ public class InventoryClick implements Listener {
     public void onInventoryClick(InventoryClickEvent evt) {
         if (plugin.getConfig().getBoolean("InventoryClick") && !evt.getWhoClicked().isOp()) {
             Player p = (Player) evt.getWhoClicked();
+
             if (evt.getCursor() != null) {
                 evt.getWhoClicked().getInventory().forEach(plugin::remove);
+
                 if (plugin.getConfig().getBoolean("Debug")) {
                     System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                     Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");

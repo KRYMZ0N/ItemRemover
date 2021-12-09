@@ -20,6 +20,7 @@ public class InventoryOpen implements Listener {
         if (plugin.getConfig().getBoolean("InventoryOpen") && !evt.getPlayer().isOp()) {
             Player p = (Player) evt.getPlayer();
             evt.getInventory().forEach(plugin::remove);
+
             if (plugin.getConfig().getBoolean("Debug")) {
                 System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");

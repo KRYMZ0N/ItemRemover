@@ -21,10 +21,11 @@ public final class Main extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
-        if (instance == null) instance = this;
+        if (instance == null) instance = this; // Instance
         saveDefaultConfig();
         PluginManager pm = getServer().getPluginManager();
 
+        // Event Registration
         pm.registerEvents(this, this);
         pm.registerEvents(new InventoryPickup(this), this);
         pm.registerEvents(new InventoryClick(this), this);
@@ -39,6 +40,7 @@ public final class Main extends JavaPlugin implements Listener {
         File directory = new File(this.dir);
         File file = new File(thing);
 
+        // Checking if file exists, if not it makes one.
         try {
             if (directory.mkdirs()) {
                 System.out.println("New Directory Created");
@@ -66,7 +68,7 @@ public final class Main extends JavaPlugin implements Listener {
         // Plugin shutdown logic
     }
 
-    public void remove(ItemStack i) {
+    public void remove(ItemStack i) { //removes items.
         if (i != null && this.getConfig().getStringList("BannedItems").contains(i.getType().name())) {
             i.subtract(i.getAmount());
         }

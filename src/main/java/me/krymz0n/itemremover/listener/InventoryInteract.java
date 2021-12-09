@@ -20,6 +20,7 @@ public class InventoryInteract implements Listener {
         if (plugin.getConfig().getBoolean("InventoryInteract") && !evt.getWhoClicked().isOp()) {
             Player p = (Player) evt.getWhoClicked();
             evt.getInventory().forEach(plugin::remove);
+
             if (plugin.getConfig().getBoolean("Debug")) {
                 System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");

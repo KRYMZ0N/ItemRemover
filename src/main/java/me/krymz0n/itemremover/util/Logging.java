@@ -1,7 +1,5 @@
 package me.krymz0n.itemremover.util;
 
-import me.krymz0n.itemremover.Main;
-
 import java.io.FileWriter;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -10,7 +8,7 @@ import static me.krymz0n.itemremover.Main.instance;
 
 public class Logging {
 
-    public static void log(String s) {
+    public static void log(String s) { // Logs string into .log file
         try {
             DateTimeFormatter current = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
             LocalDateTime time = LocalDateTime.now();
