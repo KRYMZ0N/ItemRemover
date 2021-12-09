@@ -1,0 +1,7 @@
+name: ItemRemover
+version: ${project.version}
+main: me.krymz0n.itemremover.Main
+api-version: 1.17
+authors: [ KRYMZ0N05 ]
+description: A Plugin made at request to limit Items
+website: www.3b3t.me

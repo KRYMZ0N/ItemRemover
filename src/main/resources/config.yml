@@ -1,0 +1,19 @@
+# ItemRemover Plugin config
+BannedItems:
+  - BARRIER
+  - BEDROCK
+
+# Listeners
+DropItem: true
+InventoryClick: true
+InventoryInteract: true
+InventoryMove: true
+InventoryClose: true
+InventoryOpen: true
+InventoryPickup: true
+BlockPlace: true
+Join: true
+Leave: true
+
+# Debug
+Debug: true
