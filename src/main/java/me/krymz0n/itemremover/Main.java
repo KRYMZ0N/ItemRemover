@@ -9,12 +9,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin implements Listener {
     public static Main instance;
     static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
     static LocalDateTime now = LocalDateTime.now();
     String dir = getDataFolder() + "\\logs";
+    public Logger log = getLogger();
 
     public String thing = getDataFolder() + "//logs//" + "itemRemove-" + dtf.format(now) + ".log";
 
@@ -42,9 +44,9 @@ public final class Main extends JavaPlugin implements Listener {
         // Checking if file exists, if not it makes one.
         try {
             if (directory.mkdirs()) {
-                System.out.println("New Directory Created");
+                log.info("New Directory Created");
             } else {
-                System.out.println("Directory already exists");
+                log.info("Directory already exists");
 
             }
         } catch (Exception ex) {
@@ -53,9 +55,9 @@ public final class Main extends JavaPlugin implements Listener {
 
         try {
             if (file.createNewFile()) {
-                System.out.println("New file created!");
+                log.info("New file created!");
             } else {
-                System.out.println("File already exists!");
+                log.info("File already exists!");
             }
         } catch (Exception ex) {
             ex.printStackTrace();

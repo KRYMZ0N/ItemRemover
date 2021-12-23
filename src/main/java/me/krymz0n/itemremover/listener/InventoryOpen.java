@@ -22,7 +22,7 @@ public class InventoryOpen implements Listener {
             evt.getInventory().forEach(plugin::remove);
 
             if (plugin.getConfig().getBoolean("Debug")) {
-                System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
             }
         }

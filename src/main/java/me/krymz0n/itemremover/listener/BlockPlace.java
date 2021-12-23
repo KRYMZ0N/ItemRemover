@@ -30,18 +30,18 @@ public class BlockPlace implements Listener {
                     if (evt.getPlayer().getInventory().contains(Objects.requireNonNull(Material.getMaterial(b)))) {
                         if (Objects.equals(Material.getMaterial(b), Material.END_PORTAL) && evt.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.ENDER_EYE)) {
                             p.getInventory().remove(Objects.requireNonNull(Material.getMaterial(b)));
-                            System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+                            plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                             Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
 
                         } else {
                             if (plugin.getConfig().getBoolean("Debug")) {
-                                System.out.println(ChatColor.RED + " removed an illegal block from being placed by: " + p.getName() + " at " + p.getLocation().getBlockX() + ", " + p.getLocation().getBlockY() + ", " + p.getLocation().getBlockZ());
+                                plugin.log.info(ChatColor.RED + " removed an illegal block from being placed by: " + p.getName() + " at " + p.getLocation().getBlockX() + ", " + p.getLocation().getBlockY() + ", " + p.getLocation().getBlockZ());
                                 Logging.log("removed an illegal block from being placed by: " + p.getName() + " at " + p.getLocation().getBlockX() + ", " + p.getLocation().getBlockY() + ", " + p.getLocation().getBlockZ());
                                 p.getInventory().remove(Objects.requireNonNull(Material.getMaterial(b)));
                                 evt.setCancelled(true);
 
                             } else {
-                                System.out.println(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+                                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
                                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
                                 p.getInventory().remove(Objects.requireNonNull(Material.getMaterial(b)));
                                 evt.setCancelled(true);
