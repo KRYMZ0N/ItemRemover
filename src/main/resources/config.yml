@@ -2,6 +2,7 @@
 BannedItems:
   - BARRIER
   - BEDROCK
+  - DIRT
 
 # Listeners
 DropItem: true

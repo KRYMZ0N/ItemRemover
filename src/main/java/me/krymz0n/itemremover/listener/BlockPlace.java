@@ -30,7 +30,7 @@ public class BlockPlace implements Listener {
                     if (evt.getPlayer().getInventory().contains(Objects.requireNonNull(Material.getMaterial(b)))) {
                         if (Objects.equals(Material.getMaterial(b), Material.END_PORTAL) && evt.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.ENDER_EYE)) {
                             p.getInventory().remove(Objects.requireNonNull(Material.getMaterial(b)));
-                            plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+                            plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory! by means of Block Place");
                             Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
 
                         } else {
@@ -41,7 +41,7 @@ public class BlockPlace implements Listener {
                                 evt.setCancelled(true);
 
                             } else {
-                                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+                                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory! by means of Block Place");
                                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
                                 p.getInventory().remove(Objects.requireNonNull(Material.getMaterial(b)));
                                 evt.setCancelled(true);

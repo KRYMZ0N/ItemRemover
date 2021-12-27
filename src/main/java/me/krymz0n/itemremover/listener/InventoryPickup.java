@@ -6,7 +6,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.PlayerPickupItemEvent;
+import org.bukkit.event.inventory.InventoryPickupItemEvent;
 
 public class InventoryPickup implements Listener {
     private final Main plugin;
@@ -16,15 +16,18 @@ public class InventoryPickup implements Listener {
     }
 
     @EventHandler
-    public void onInventoryPickup(PlayerPickupItemEvent evt) {
-        if (plugin.getConfig().getBoolean("InventoryPickup") && !evt.getPlayer().isOp()) {
-            Player p = evt.getPlayer();
-            evt.getPlayer().getInventory().forEach(plugin::remove);
+    public void onInventoryPickup(InventoryPickupItemEvent evt) {
+        Player p = (Player) evt.getInventory().getViewers();
+        if (plugin.getConfig().getBoolean("InventoryPickup") && !p.isOp()) {
+            p.sendMessage("You have picked up something");
+            evt.getInventory().forEach(plugin::remove);
 
-            if (plugin.getConfig().getBoolean("Debug")) {
-                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+            if (plugin.getConfig().getBoolean("Debug") && plugin.j == 1) {
+                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory! by means of leave");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
             }
+
+            plugin.j =3;
         }
     }
 }

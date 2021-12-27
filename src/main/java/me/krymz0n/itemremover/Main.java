@@ -1,14 +1,17 @@
 package me.krymz0n.itemremover;
 
 import me.krymz0n.itemremover.listener.*;
+import org.bukkit.Material;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.PlayerInventory;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.logging.Logger;
 
 public final class Main extends JavaPlugin implements Listener {
@@ -17,6 +20,7 @@ public final class Main extends JavaPlugin implements Listener {
     static LocalDateTime now = LocalDateTime.now();
     String dir = getDataFolder() + "\\logs";
     public Logger log = getLogger();
+    public int j;
 
     public String thing = getDataFolder() + "//logs//" + "itemRemove-" + dtf.format(now) + ".log";
 
@@ -70,8 +74,20 @@ public final class Main extends JavaPlugin implements Listener {
     }
 
     public void remove(ItemStack i) { //removes items.
-        if (i != null && this.getConfig().getStringList("BannedItems").contains(i.getType().name())) {
+        if (i != null && this.getConfig().getStringList("BannedItems").contains(i.getType().toString())) {
             i.subtract(i.getAmount());
+            j = 1;
         }
     }
+
+/*    public boolean didRemove(PlayerInventory inventory) {
+//        System.out.println(Objects.requireNonNull(inventory.getItem(inventory.getSize())).toString());
+//        if (getConfig().getStringList("BannedItems").contains(Objects.requireNonNull(inventory.getItem(inventory.getSize())).toString())) {
+//            System.out.println("Inventory was not the same");
+//            return true;
+//        } else {
+//            System.out.println("Inventory was the same");
+//            return false;
+//        }
+*/
 }

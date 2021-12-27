@@ -21,10 +21,12 @@ public class InventoryInteract implements Listener {
             Player p = (Player) evt.getWhoClicked();
             evt.getInventory().forEach(plugin::remove);
 
-            if (plugin.getConfig().getBoolean("Debug")) {
-                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory!");
+            if (plugin.getConfig().getBoolean("Debug") && plugin.j == 1) {
+                plugin.log.info(ChatColor.RED + " removed an illegal item from: " + p.getName() + "'s inventory! by means of leave");
                 Logging.log("removed an illegal item from: " + p.getName() + "'s inventory!");
             }
+
+            plugin.j =3;
         }
     }
 }

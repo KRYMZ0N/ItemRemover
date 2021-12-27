@@ -14,8 +14,8 @@ public class Logging {
             LocalDateTime time = LocalDateTime.now();
             FileWriter fileWriter = new FileWriter(instance.thing, true);
 
-            fileWriter.write("" + current.format(time) + ": " + s);
-            fileWriter.write("\n");
+            fileWriter.append("").append(current.format(time)).append(": ").append(s);
+            fileWriter.append("\n");
             fileWriter.flush();
             fileWriter.close();
         } catch (Exception ex) {
